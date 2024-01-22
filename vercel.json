@@ -11,5 +11,15 @@
           "src": "/(.*)",
           "dest": "api.py"
         }
+      ],
+      "crons": [
+        {
+          "path": "/execute",
+          "schedule": "0 10 * * *"
+        },
+        {
+          "path": "/execute",
+          "schedule": "45 17 * * *"
+        }
       ]
   }
