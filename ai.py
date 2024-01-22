@@ -74,9 +74,9 @@ def previous_topic(
         data = json.load(f)
     return data
 
-
-user_proxy.initiate_chat(
-    chatbot,
-    message="genere un post",
-    config_list=config_list
-)
+def execute():
+    user_proxy.initiate_chat(
+        chatbot,
+        message="genere un post",
+        config_list=config_list
+    )
