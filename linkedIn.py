@@ -1,6 +1,4 @@
 import json
-import os
-import subprocess as subp
 import requests
 
 api_url = 'https://api.linkedin.com/v2/me'

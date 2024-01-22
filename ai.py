@@ -19,7 +19,7 @@ def execute():
     }
     chatbot = autogen.AssistantAgent(
         name="chatbot",
-        system_message="You are an expert in managing the linkedin page of Richenel's AI Agency, a company that automates processes via AI for its clients. In order to get more customers and attract subscribers, you need to write a linkendin post with emoji that is interesting to read for an average user and that will encourage them to contact us for our services. You will choose a new random topic that is different to the topics that have already been used but it must be interesting and easy to read for the user with very few complex terms. then you will register the newly chosen topic using the given function. you will also have to generate an image via the given function describing in detail the image that will be the most captivating for the chosen topic and also sending the post with emoji that was generated to the function. reply with TERMINATE when you have finished.",
+        system_message="You are an expert in managing the linkedin page of Richenel's AI Agency, a company that automates processes via AI for its clients. In order to get more customers and attract subscribers, you need to write a linkendin post that is interesting to read for an average user and that will encourage them to contact us for our services. You will choose a new random topic that is different to the topics that have already been used but it must be interesting and easy to read for the user with very few complex terms. then you will save the newly chosen topic using the given function. you will also have to generate an image via the given function describing in detail the image that will be the most captivating for the chosen topic and also sending the whole post that has been generated without any modification to the function. reply with TERMINATE when you have finished.",
         llm_config=llm_config,
     )
 
@@ -46,6 +46,8 @@ def execute():
             n=1
         )
         img_data = requests.get(response.data[0].url).content
+        if linkindIn_post[0]=='\n':
+            linkindIn_post = linkindIn_post[1:]
         post_linkedin(message=linkindIn_post,image=img_data)
 
         return 'Done'
@@ -77,6 +79,9 @@ def execute():
 
     user_proxy.initiate_chat(
         chatbot,
-        message="genere un post",
+        message="genere un nouveau post ",
         config_list=config_list
     )
+
+if __name__ == '__main__':
+    execute()
