@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/execute')
-def hello():
+def post_linkedin():
     execute()
     return 'Hello, World!'
 
