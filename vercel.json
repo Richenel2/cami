@@ -19,7 +19,7 @@
       },
       {
         "path": "/execute",
-        "schedule": "52 9 * * *"
+        "schedule": "0 10 * * *"
       }
     ]
   }
