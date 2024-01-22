@@ -20,7 +20,7 @@ def hello():
     current_time = now.strftime("%H:%M:%S")
     return f"Current Time = {current_time}"
 
-@scheduler.task('interval', id='my_job', minute=40, hour = 18)
+@scheduler.task('interval', id='my_job', minute=40, hour = 17)
 def my_job():
     execute()
     print('This job is executed every 10 seconds.')
