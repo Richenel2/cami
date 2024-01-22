@@ -14,7 +14,7 @@
       },
       {
         "path": "/main.py",
-        "schedule": "17 11 * * *"
+        "schedule": "25 11 * * *"
       }
     ]
   }
