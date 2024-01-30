@@ -11,7 +11,7 @@ def get_token():
 
     with open('config.json', 'r') as f:
         token = json.load(f)
-    access_token = token['access_token']
+    access_token = token["linkedin"]['access_token']
     headers = {
         'Authorization': f'Bearer {access_token}',
         'Connection': 'Keep-Alive',
@@ -35,7 +35,7 @@ def get_token():
             "Content-Type":"x-www-form-urlencoded"
         },params={
             "grant_type":"refresh_token",
-            "refresh_token":token["refresh_token"],
+            "refresh_token":token["linkedin"]["refresh_token"],
             "client_id": "782dfwzsm227fw",
             "client_secret": "GnHW1Undlb6F2RiI"})
         # response = requests.post(url, params=params)
@@ -43,7 +43,7 @@ def get_token():
         if response.status_code == 200:
             access_token = response.json()['access_token']
             with open('config.json', 'w') as json_file:
-                token["access_token"]=access_token
+                token["linkedin"]["access_token"]=access_token
                 json.dump(token, json_file)
             return access_token
         else:
